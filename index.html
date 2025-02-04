@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="mainContent">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <h1>¿Quieres ser mi San Valentin?</h1>
+            <img id="valentineImage" src="https://pbs.twimg.com/tweet_video_thumb/EGbiih6UcAE-Jae.jpg" alt="Valentine's Day Image" style="max-width: 300px; height: auto;">
+            <br/>
+            <br/>
+            <br/>
+            <button id="yesButton">Si</button>
+            <button id="no">No</button>
+        </div>
+
+        <div id="messageContent" style="display: none; text-align: center;">
+            <h1>Te amo cuchurrumi, te veo el 14 de febrero!</h1>
+            <h1>Se viene plancito épico de cerámica</h1>
+            <img src="https://media.tenor.com/DDyZ4GeRl94AAAAM/kiss.gif" alt="Love Image" style="max-width: 300px; height: auto;">
+        </div>
+
+        <style>
+            body {
+                background: linear-gradient(to bottom, #f5cac3, #f7ede2);
+                background-attachment: fixed;
+                height: 100vh;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            div {
+                text-align: center;
+                vertical-align: middle;
+            }
+            h1 {
+                color: #ff477e;
+            }
+            #yesButton {
+                background-color: #06d6a0;
+                transition: transform 0.3s;
+                margin-right: 10px;
+                width: 120px;
+                font-size: 30px;
+                height: 40px;
+                color: #fff;
+                margin-left: -140px;
+            }
+            #no {
+                position: absolute;
+                background-color: #ef476f;
+                transition: transform 0.3s;
+                margin-left: 10px;
+                width: 120px;
+                height: 40px;
+                color: #fff;
+            }
+        </style>
+        <script>
+            document.getElementById("yesButton").addEventListener("click", function() {
+                document.getElementById("mainContent").style.display = "none";
+                document.getElementById("messageContent").style.display = "block";
+            });
+
+            var yesButton = document.getElementById("yesButton");
+            var no = document.getElementById("no");
+            var valentineImage = document.getElementById("valentineImage");
+
+            var noTexts = ["Segura mi Cuchu?", "Por tu trenesito del amor?", "Porfis", "No me hagas esto Raul :(", "Me rompes el corazón Princesa", "Voy a llorar"];
+            var imageSources = ["https://static1.srcdn.com/wordpress/wp-content/uploads/2023/04/donkey-looking-up-in-shrek-3.jpg?q=50&fit=crop&w=1140&h=&dpr=1.5", 
+            "https://pbs.twimg.com/media/Fl4A4GZWAAE5vjq?format=jpg&name=900x900", "https://media.tenor.com/WRaT95yNLkAAAAAM/sad-eyes-pretty-please.gif", "https://pbs.twimg.com/media/F46UgLIXcAAODUp?format=jpg&name=medium", "https://media1.tenor.com/m/1Q21IAWl-AQAAAAd/agobiado-freddy-stewart-contreras.gif"];
+
+            no.addEventListener("click", change);
+
+            function change() {
+                var randomIndex = Math.floor(Math.random() * noTexts.length);
+                no.innerText = noTexts[randomIndex];
+
+                var i = Math.floor(Math.random() * 1000) + 1;
+                var j = Math.floor(Math.random() * 700) + 1;
+                no.style.left = i + "px";
+                no.style.top = j + "px";
+
+                var currentWidth = yesButton.offsetWidth;
+                var currentHeight = yesButton.offsetHeight;
+                yesButton.style.width = currentWidth + 30 + "px";
+                yesButton.style.height = currentHeight + 10 + "px";
+
+                var randomImageIndex = Math.floor(Math.random() * imageSources.length);
+                valentineImage.src = imageSources[randomImageIndex];
+            }
+        </script>
+    </body>
+</html>
